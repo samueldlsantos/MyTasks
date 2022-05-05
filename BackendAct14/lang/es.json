@@ -1,0 +1,10 @@
+{
+	"Login": "Iniciar sesión",
+	"not_null": "El campo %s no puede ser nulo",
+	"required": "El campo %s es requerido",
+	"string_lenght": "El campo %s solo acepta textos de %s caracteres",
+	"is_int": "El campo %s no es un número entero válido",
+	"is_email": "El campo %s no es un email válido",
+	"alphanumeric": "El campo %s solo acepta valores alfanuméricos",
+	"constraint_error": "Error al guardar. Código: %s, detalles: %s"
+}
