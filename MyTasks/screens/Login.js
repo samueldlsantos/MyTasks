@@ -15,7 +15,6 @@ const Login = () => {
 
     const loadUsers = async () => {
         const data = await getUsers()
-        console.log(data);
     }
     useEffect(() => {
         loadUsers()
@@ -114,7 +113,7 @@ const styles = StyleSheet.create({
         borderRadius: 30,
         padding: 10,
         paddingStart: 20,
-        width: '80%',
+        width: '100%',
         height: 50,
         backgroundColor: '#fff'
     },

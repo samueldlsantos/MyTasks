@@ -1,6 +1,8 @@
-import { View, Text, FlatList } from 'react-native'
+import { View, Text, FlatList, StyleSheet } from 'react-native'
 import React from 'react'
 import TaskItem from './TaskItem.js'
+import Layout from '../components/Layout'
+
 const TaskList = ({ tasks }) => {
 
 
@@ -10,14 +12,20 @@ const TaskList = ({ tasks }) => {
     } 
 
     return (
-        <View>
             <FlatList
+            style = {styles.listContainer}
                 data={tasks}
                 keyExtractor={(item) => item.id + ''}
                 renderItem={renderItem}
             />
-        </View>
     )
 }
 
 export default TaskList
+
+const styles = StyleSheet.create({
+    listContainer: {
+        width: '100%',
+        paddingTop: 20
+    }
+});

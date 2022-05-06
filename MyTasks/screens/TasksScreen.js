@@ -19,7 +19,6 @@ const TasksScreen = () => {
 
   return (
     <Layout>
-        <Text>Tareas</Text>
         <TaskList tasks={tasks} />
        
     </Layout>
