@@ -17,6 +17,10 @@ module.exports = {
       description: {
         type: Sequelize.STRING
       },
+      fecha_entrega: {
+        allowNull: false,
+        type: Sequelize.DATE
+      },
       created_by: {
         type: Sequelize.INTEGER,
         allowNull: false,

@@ -7,8 +7,9 @@ import SequelizeErrorHandler from '../traits/sequelize.error.handler.js';
 const index = async (req, res) => {
 	var result = [];
 	try {
-		result = await db.Materias.findAll({include:"materias"});
+		result = await db.Materias.findAll({attributes:{exclude: ['createdBy','updatedAt','createdAt']}, include:"users"});
 	} catch (error) {
+		console.log(error)
 		result = SequelizeErrorHandler(error);
 	}
 	res.json(result);
@@ -17,7 +18,7 @@ const index = async (req, res) => {
 const show = async (req, res) => {
 	var result = null;
 	try {
-		result = await  db.Materias.findByPk(req.params.id);
+		result = await  db.Materias.findByPk(req.params.id,);
 	} catch (error) {
 		result = SequelizeErrorHandler(error);
 	}

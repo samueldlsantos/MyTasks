@@ -6,6 +6,7 @@ import apiResource from './resources.js';
 //Controllers
 import userController from './../app/controllers/user.controller.js';
 import materiasController from './../app/controllers/materias.controller.js';
+import authController from './../app/controllers/auth-controller.js';
 
 
 const router = Router();
@@ -14,6 +15,7 @@ const router = Router();
 
 router.group("/api", (router) => {
 	
+    router.get('/login', authController.login);
     apiResource("/users", userController, router);
     apiResource("/materias", materiasController, router);
 	

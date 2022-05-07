@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-     Materias.belongsTo(models.Users, {as:"materias", foreignKey:"createdBy"});
+     Materias.belongsTo(models.Users, {as:"users", foreignKey:"createdBy"});
 
     }
   }
@@ -19,6 +19,7 @@ module.exports = (sequelize, DataTypes) => {
     asignature: DataTypes.STRING,
     name: DataTypes.STRING,
     description: DataTypes.STRING,
+    fechaEntrega: DataTypes.STRING,
     createdBy: DataTypes.STRING
   }, {
     sequelize,

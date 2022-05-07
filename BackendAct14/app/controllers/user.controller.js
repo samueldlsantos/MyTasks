@@ -7,7 +7,7 @@ import SequelizeErrorHandler from './../traits/sequelize.error.handler.js';
 const index = async (req, res) => {
 	var result = null;
 	try {
-			result = await db.Users.findAll({include:"materias"});
+			result = await db.Users.findAll({include:"tareas" ,attributes:{exclude: ['createdBy','updatedAt','createdAt']}});
 		
 	} catch (error) {
 		console.log(error);
@@ -19,7 +19,7 @@ const index = async (req, res) => {
 const show = async (req, res) => {
 	var result = null;
 	try {
-		result = await db.Users.findByPk(req.params.id);
+		result = await db.Users.findByPk(req.params.id, {attributes:{exclude: ['createdBy','updatedAt','createdAt']}, include:"tareas"});
 	} catch (error) {
 		result = SequelizeErrorHandler(error);
 	}
@@ -58,7 +58,7 @@ const update = async (req, res) => {
 		if(req.body.password !== undefined)
 			params.password = bcrypt.hashSync(req.body.password, 10);
 		await db.Users.update(params, { where: {id: req.params.id}});
-		result = await db.Users.findByPk(req.params.id);
+		result = await db.Users.findByPk(req.params.id, {attributes:{exclude: ['createdBy','updatedAt','createdAt']}, include:"tareas"});
 	} catch (error) {
 		result = SequelizeErrorHandler(error);
 	}
